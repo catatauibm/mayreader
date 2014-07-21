@@ -21,13 +21,13 @@ default: &default
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
   port: 5432
-  username: qksjhyuohkxwgx
-  password: kvEwxgKn1MmXAlsl6zAuCaPhJc
-  host: ec2-54-197-250-40.compute-1.amazonaws.com
+  username: rshoipinbqfivp
+  password: LTfDfLhZ5s5qSWbRmNdUhqCQPQ
+  host: ec2-54-204-31-13.compute-1.amazonaws.com
 
 development:
   <<: *default
-  database: d8c06sovrl0nb9
+  database: d9oa9bf13k6o0k
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -61,7 +61,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: d8c06sovrl0nb9
+  database: d9oa9bf13k6o0k
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -84,6 +84,6 @@ test:
 #
 production:
   <<: *default
-  database: d8c06sovrl0nb9
+  database: d9oa9bf13k6o0k
   
   
