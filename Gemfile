@@ -16,6 +16,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 gem 'heroku'
 gem 'feedjira'
+gem 'dropbox-sdk'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
