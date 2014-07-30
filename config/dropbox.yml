@@ -1,8 +1,6 @@
----
 app_key: mttkf445w7w34lx
 app_secret: e5jywp3nkqn64bj
 access_token: Yw5dQlfMV_sAAAAAAAAANUleMuJAqzt9x8409HWu2tg
 access_token_secret: Yw5dQlfMV_sAAAAAAAAANnTQcwfMVZIX3y97I404RnL1dp_mY789Y-N4otsVwA4l
 user_id: '7481546'
-access_type: dropbox|app_folder
 folder: mayreader

@@ -1,0 +1,5 @@
+<%= form_tag :action => 'create' do %>
+  App Key <%= text_field :dados, :app_key %><br />
+  App Secret <%= text_field :dados, :app_secret %><br />
+  <%= submit_tag 'Conectar' %>
+<% end %>
