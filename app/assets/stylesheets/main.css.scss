@@ -75,6 +75,7 @@ header {
         border-bottom: 1px solid $medium_blue;
         border-left: 1px solid $medium_blue;
         border-right: 1px solid $medium_blue;
+        position: relative;
         
         a {
           color: $azure;
@@ -89,22 +90,29 @@ header {
         ul {
           display: none;
           list-style: none;
-          width: 120px;
+          width: 122px;
           position: absolute;
-          left: 120px;
+          left: 118px;
           top: 0px;
           
           li {
-            background-color: pink;
+            background-color: $dark_blue;
+            border-bottom: 1px solid $medium_blue;
+            border-left: 1px solid $medium_blue;
+            border-right: 1px solid $medium_blue;
             
             a {
-              color: green;
+              color: $azure;
               display: block;
               padding-bottom: $space_padding;
               padding-top: $space_padding;
               text-align: center;
               text-decoration: none;
             }
+          }
+          
+          li:hover {
+            background-color: $medium_blue;
           }
         }
       }
@@ -130,7 +138,6 @@ header {
 
 div#main {
   margin: 200px;
-  z-index: 5;
 }
 
 

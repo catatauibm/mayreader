@@ -31,7 +31,23 @@
 		<nav id="header-menu">
 			<div id="selected-category"><a href="#">all</a></div>
 			<div id="selected-site"><a>-</a></div>
+			
 			<ul class="menu-category">
+				<% @menu["categories"].each do |category| %>
+				<li class="category"><a href="#"><%= category["name"] %></a>
+					<ul>
+						<% category["sites"].each do |site| %>
+							<% if (site != "-") %>
+						<li class="site"><a href="#"><%= site %></a></li>
+							<% end %>
+						<% end %>
+					</ul>
+				</li>
+				<% end %>
+			</ul>
+			
+			
+			<!-- <ul class="menu-category">
 				<li class="category"><a href="#">all</a></li>
 				<li class="category"><a href="#">animes</a>
 					<ul id="menu-site-animes">
@@ -46,7 +62,7 @@
 						<li class="site"><a href="#">site 5</a></li>
 					</ul>
 				</li>
-			</ul>
+			</ul> -->
 		</nav>
 		<div class="reset-menu"></div>
 		<!-- <div id="header-search-setting">
