@@ -7,29 +7,37 @@ $medium_blue: #0000CD;
 $azure: #F0FFFF;
 $font_family: "Comic Sans MS", Cambria, Georgia, serif;
 
-$space_padding: 11px;
+@mixin menu-a {
+  color: $azure;
+  display: block;
+  font-family: $font_family;
+  padding-bottom: 11px;
+  padding-top: 11px;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+        
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 0 auto;
+}
 
 header {
   background-color: $dark_blue;
   height: 40px;
+  max-height: 40px;
   width: 100%;
   
   nav#header-menu {
+    
     div#selected-category {
       background-color: $dark_blue;
+      border: 1px solid $medium_blue;
       float: left;
       width: 120px;
       
       a {
-        border: 1px solid $medium_blue;
-        color: $azure;
-        display: block;
-        font-family: $font_family;
-        padding-bottom: $space_padding;
-        padding-top: $space_padding;
-        text-align: center;
-        text-decoration: none;
-        vertical-align: middle;
+        @include menu-a;
       }
     }
     
@@ -43,20 +51,14 @@ header {
     
     div#selected-site {
       background-color: $dark_blue;
+      border-top: 1px solid $medium_blue;
+      border-bottom: 1px solid $medium_blue;
+      border-right: 1px solid $medium_blue;
       float: left;
       width: 120px;
       
       a {
-        border-top: 1px solid $medium_blue;
-        border-bottom: 1px solid $medium_blue;
-        border-right: 1px solid $medium_blue;
-        color: $azure;
-        display: block;
-        font-family: $font_family;
-        padding-bottom: $space_padding;
-        padding-top: $space_padding;
-        text-align: center;
-        text-decoration: none;
+        @include menu-a;
       }
     }
     
@@ -68,7 +70,6 @@ header {
       clear: both;
       display: none;
       list-style: none;
-      width: 120px;
       
       li.category {
         background-color: $dark_blue;
@@ -76,23 +77,17 @@ header {
         border-left: 1px solid $medium_blue;
         border-right: 1px solid $medium_blue;
         position: relative;
+        width: 120px;
         
         a {
-          color: $azure;
-          display: block;
-          font-family: $font_family;
-          padding-bottom: $space_padding;
-          padding-top: $space_padding;
-          text-align: center;
-          text-decoration: none;
+          @include menu-a;
         }
         
         ul {
           display: none;
           list-style: none;
-          width: 122px;
           position: absolute;
-          left: 118px;
+          left: 120px;
           top: 0px;
           
           li {
@@ -100,14 +95,10 @@ header {
             border-bottom: 1px solid $medium_blue;
             border-left: 1px solid $medium_blue;
             border-right: 1px solid $medium_blue;
+            width: 120px;
             
             a {
-              color: $azure;
-              display: block;
-              padding-bottom: $space_padding;
-              padding-top: $space_padding;
-              text-align: center;
-              text-decoration: none;
+              @include menu-a;
             }
           }
           

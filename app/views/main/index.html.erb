@@ -1,68 +1,35 @@
 <div id="app">
 	<header>
-		<script type="text/javascript">
-			// (function( $ ) {
-				// $.fn.noemdafuncao = function( nome ) {
-					// return this;
-				// }; 
-			// }) ( jQuery );
-// 
-// 
-// $('#my_div').noemdafuncao();
-
-
-			$(function() {
-				// $("#selected-category, .category, .site").hover(function() {
-					// $("#menu-category").css("display", "block");
-				// }, function() {
-					// $("#menu-category").css("display", "none");
-				// });
-				
-				// $("#selected-site").hover(function() {
-					// if ($("#selected-site a").val()) {
-// 						
-					// }
-					// $("#menu-site-animes").css("display", "block");
-				// }, function() {
-					// $("#menu-site-animes").css("display", "none");
-				// });
-			});
-		</script>
 		<nav id="header-menu">
-			<div id="selected-category"><a href="#">all</a></div>
-			<div id="selected-site"><a>-</a></div>
+			
+			<script type="text/javascript">
+				$(function() {
+				  $(".suspension-points").each(function() {
+				  	var val = $(this).html();
+				  	if (val.length > 10) {
+				  	var new_val = val.substr(0,10).concat("...");
+				  	$(this).html(new_val);
+				  }
+				  });
+				});
+			</script>
+			
+			<div id="selected-category"><a class="suspension-points" href="#"><%= @selected_category %></a></div>
+			<div id="selected-site"><a class="suspension-points" href="#"><%= @selected_site %></a></div>
 			
 			<ul class="menu-category">
 				<% @menu["categories"].each do |category| %>
-				<li class="category"><a href="#"><%= category["name"] %></a>
+				<li class="category"><%= link_to category["name"], {action: "index", :category => category["name"]}, :class => "suspension-points" %>
 					<ul>
 						<% category["sites"].each do |site| %>
 							<% if (site != "-") %>
-						<li class="site"><a href="#"><%= site %></a></li>
+								<li class="site"><%= link_to site, {action: "index", :category => category["name"], :site => site}, :class => "suspension-points" %></li>
 							<% end %>
 						<% end %>
 					</ul>
 				</li>
 				<% end %>
 			</ul>
-			
-			
-			<!-- <ul class="menu-category">
-				<li class="category"><a href="#">all</a></li>
-				<li class="category"><a href="#">animes</a>
-					<ul id="menu-site-animes">
-						<li class="site"><a href="#">site 1</a></li>
-						<li class="site"><a href="#">site 2</a></li>
-						<li class="site"><a href="#">site 3</a></li>
-					</ul>
-				</li>
-				<li class="category"><a href="#">jogos</a>
-					<ul id="menu-site-jogos">
-						<li class="site"><a href="#">site 4</a></li>
-						<li class="site"><a href="#">site 5</a></li>
-					</ul>
-				</li>
-			</ul> -->
 		</nav>
 		<div class="reset-menu"></div>
 		<!-- <div id="header-search-setting">
@@ -81,12 +48,21 @@
 	
 	
 	<div id="main">
-		<article>
-			conteudo post 1
-		</article>
-		<article>
-			conteudo post 2
-		</article>
+		<% @feeds.each do |feed| %>
+			<h1><%= feed.title %></h1>
+			<p><%= feed.url %></p>
+			<br />
+			<br />
+			<% feed.entries.first(10).each_with_index do |entry, i| %>
+			<article>
+				<h2><%= i.to_s + ". " + entry.title %></h2>
+				<p><%= entry.url %></p>
+			</article>
+			<br />
+			<% end %>
+			<br />
+			<br />
+		<% end %>
 	</div>
 	
 	
