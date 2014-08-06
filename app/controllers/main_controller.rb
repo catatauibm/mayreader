@@ -60,14 +60,16 @@ class MainController < ApplicationController
       @feeds.push(feeds[url])
     end
     
+    # ver como fazer
+    # f1 = Feed.new
+    # f1.category = "animes"
+    # f1.site = "Anbient"
+    # f1.title = @feeds
+    # f1.url = 
+    # f1.description = []
+    # f1.read = false
+
     
-    # urls = %w[http://feedjira.com/blog/feed.xml https://github.com/feedjira/feedjira/feed.xml]
-    # feeds = Feedjira::Feed.fetch_and_parse urls # returns a Hash, with each url having a Feedjira::Feed object
-    # # => {
-    # #      'http://feedjira.com/blog/feed.xml' => <Feedjira::Feed ..>,
-    # #      'https://github.com/feedjira/feedjira/feed.xml' => <Feedjira::Feed ..>
-    # #    }
-# 
-    # @feeds = feeds['http://feedjira.com/blog/feed.xml']
+    
   end
 end
