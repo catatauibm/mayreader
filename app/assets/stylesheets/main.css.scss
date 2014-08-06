@@ -67,6 +67,10 @@ header#category {
   
   div#selected-site:hover {
     background-color: $medium_blue;
+    
+    ~ ul#menu-site {
+      display: block;
+    }
   }
   
   ul#menu-category {
@@ -121,6 +125,34 @@ header#category {
   }
   
   ul#menu-category:hover {
+    display: block;
+  }
+  
+  ul#menu-site {
+    clear: left;
+    display: none;
+    list-style: none;
+    
+    li {
+      background-color: $dark_blue;
+      border-bottom: 1px solid $medium_blue;
+      border-left: 1px solid $medium_blue;
+      border-right: 1px solid $medium_blue;
+      position: relative;
+      left: $size_menu;
+      width: $size_menu;
+      
+      a {
+        @include menu-a;
+      }
+    }
+    
+    li:hover {
+      background-color: $medium_blue;
+    }
+  }
+  
+  ul#menu-site:hover {
     display: block;
   }
 }

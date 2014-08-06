@@ -5,10 +5,10 @@
 		<script type="text/javascript">
 			$(function() {
 			  $(".suspension-points").each(function() {
-			  	var val = $(this).html();
-			  	if (val.length > 10) {
-			  	var new_val = val.substr(0,10).concat("...");
-			  	$(this).html(new_val);
+			    var val = $(this).html();
+			    if (val.length > 10) {
+			    var new_val = val.substr(0,10).concat("...");
+			    $(this).html(new_val);
 			  }
 			  });
 			});
@@ -18,16 +18,28 @@
 		<div id="selected-site"><a class="suspension-points" href="#"><%= @selected_site %></a></div>
 		
 		<ul id="menu-category">
-			<% @menu["categories"].each do |category| %>
-			<li><%= link_to category["name"], {action: "index", :category => category["name"]}, :class => "suspension-points" %>
+			<% @menu.each do |item| %>
+			<li><%= link_to item["category"], {action: "index", :category => item["category"]}, :class => "suspension-points" %>
 				<ul>
-					<% category["sites"].each do |site| %>
+					<% item["sites"].each do |site| %>
 						<% if (site != "-") %>
-							<li><%= link_to site, {action: "index", :category => category["name"], :site => site}, :class => "suspension-points" %></li>
+							<li><%= link_to site, {action: "index", :category => item["category"], :site => site}, :class => "suspension-points" %></li>
 						<% end %>
 					<% end %>
 				</ul>
 			</li>
+			<% end %>
+		</ul>
+
+		<ul id="menu-site">
+			<% if (@selected_site != "-") %>
+				<li><%= link_to "-", {action: "index", :category => @selected_category}, :class => "suspension-points" %></li>
+			<% end %>
+			<% if (@selected_category != "all") %>
+				<% sites = @menu.map{ |a| a["sites"] if a["category"] == @selected_category }.compact.first %>
+				<% sites.each do |site| %>
+					<li><%= link_to site, {action: "index", :category => @selected_category, :site => site}, :class => "suspension-points" %></li>
+				<% end %>
 			<% end %>
 		</ul>
 	</header>

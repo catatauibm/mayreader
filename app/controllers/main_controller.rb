@@ -2,7 +2,11 @@ class MainController < ApplicationController
   def index
     @selected_category = (params[:category].blank? ? "all" : params[:category])
     @selected_site = (params[:site].blank? ? "-" : params[:site])
-    @menu = JSON.parse( '{"categories": [ {"name": "all", "sites": ["-"]},   {"name": "animes", "sites": ["Anbient", "Anitube"]},  {"name": "quadrinhos","sites": ["Vida de Programador", "Vida de Suporte", "Um Sábado Qualquer"]} ,  {"name": "blogs","sites": ["Minilua"]} ]}');
+    @menu = JSON.parse('[
+    {"category":"all",        "sites":["-"]},
+    {"category":"animes",     "sites":["Anbient", "Anitube"]},
+    {"category":"quadrinhos", "sites":["Vida de Programador", "Vida de Suporte", "Um Sábado Qualquer"]},
+    {"category":"blogs",      "sites":["Minilua"]}]')
 
 
 
@@ -27,6 +31,7 @@ class MainController < ApplicationController
       when "-"
         urls = [url_anbient, url_anitube]
       end
+      @menu_site = "Asd"
     when "quadrinhos"
       case @selected_site
       when "Vida de Programador"
