@@ -5,7 +5,7 @@
 $dark_blue: #00008B;
 $medium_blue: #0000CD;
 $azure: #F0FFFF;
-$font_family: "Comic Sans MS", Cambria, Georgia, serif;
+$font_family: Consolas, Monaco, "Andale Mono", monospace;
 
 $size_header: 40px;
 $size_menu: 120px;
@@ -23,15 +23,15 @@ $size_menu: 120px;
   vertical-align: middle;
   white-space: nowrap;        
 }
-  
-div#background {
+
+div#category {
   background-color: $dark_blue;
   height: $size_header;
+  position: fixed;
+  top: 0px;
   width: 100%;
-}
+  z-index: 1;
 
-header#category {
-  height: $size_header;
   
   div#selected-category {
     background-color: $dark_blue;
@@ -157,10 +157,12 @@ header#category {
   }
 }
 
-header#setting {
-  float: right;
+div#setting {
   height: $size_header;
-  margin-top: -$size_header;
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  z-index: 2;
   
   img {
     background-color: red;
@@ -202,13 +204,49 @@ header#setting {
   }
 }
 
+@mixin background-main {
+  background-attachment: fixed;
+  background-color: silver;
+  background-image: 
+  radial-gradient(circle at 100% 150%, silver 24%, white 25%, white 28%, silver 29%, silver 36%, white 36%, white 40%, transparent 40%, transparent),
+  radial-gradient(circle at 0    150%, silver 24%, white 25%, white 28%, silver 29%, silver 36%, white 36%, white 40%, transparent 40%, transparent),
+  radial-gradient(circle at 50%  100%, white 10%, silver 11%, silver 23%, white 24%, white 30%, silver 31%, silver 43%, white 44%, white 50%, silver 51%, silver 63%, white 64%, white 71%, transparent 71%, transparent),
+  radial-gradient(circle at 100% 50%, white 5%, silver 6%, silver 15%, white 16%, white 20%, silver 21%, silver 30%, white 31%, white 35%, silver 36%, silver 45%, white 46%, white 49%, transparent 50%, transparent),
+  radial-gradient(circle at 0    50%, white 5%, silver 6%, silver 15%, white 16%, white 20%, silver 21%, silver 30%, white 31%, white 35%, silver 36%, silver 45%, white 46%, white 49%, transparent 50%, transparent);
+  background-size: 100px 50px;
+  // http://lea.verou.me/css3patterns/#seigaiha
+}
+
+@mixin css-feed {
+  
+  blockquote {
+    line-height: 1.7;
+    margin-top: 14px;
+    margin-bottom: 14px;
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+  
+  img {
+    height: auto;
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;    
+  }
+}
+
 div#main {
-  background: black;
-  color: $azure;
+  @include background-main;
   
   article {
-    border: 2px solid $azure;
+    @include css-feed;
+    
+    background: white;
+    color: black;
+    border: 2px solid gray;
+    border-radius: 5px;
     margin: 0px auto 20px auto;
+    display: block;
     padding: 20px;
     width:80%;
   }
