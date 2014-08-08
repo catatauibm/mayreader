@@ -1,208 +1,20 @@
-// Place all the styles related to the main controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+///////////////////////////////////////////////////////////////////////////////
+// VARIAVEIS DEFAULT
+///////////////////////////////////////////////////////////////////////////////
 
-$dark_blue: #00008B;
-$medium_blue: #0000CD;
+// Cores
+$dark-blue: #00008B;
+$medium-blue: #0000CD;
 $azure: #F0FFFF;
-$font_family: Consolas, Monaco, "Andale Mono", monospace;
 
-$size_header: 40px;
-$size_menu: 120px;
+// Fontes
+$font-family-courier-new: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+$font-family-philosopher: "Philosopher","Trebuchet MS",Helvetica,sans-serif;
 
-@mixin menu-a {
-  color: $azure;
-  display: block;
-  font-family: $font_family;
-  margin: 0 auto;
-  overflow: hidden;
-  padding-bottom: 11px;
-  padding-top: 11px;
-  text-align: center;
-  text-decoration: none;
-  vertical-align: middle;
-  white-space: nowrap;        
-}
 
-div#category {
-  background-color: $dark_blue;
-  height: $size_header;
-  position: fixed;
-  top: 0px;
-  width: 100%;
-  z-index: 1;
-
-  
-  div#selected-category {
-    background-color: $dark_blue;
-    border: 1px solid $medium_blue;
-    float: left;
-    width: $size_menu;
-    
-    a {
-      @include menu-a;
-    }
-  }
-  
-  div#selected-category:hover {
-    background-color: $medium_blue;
-    
-    ~ ul#menu-category {
-      display: block;
-    }
-  }
-  
-  div#selected-site {
-    background-color: $dark_blue;
-    border-bottom: 1px solid $medium_blue;
-    border-right: 1px solid $medium_blue;
-    border-top: 1px solid $medium_blue;
-    float: left;
-    width: $size_menu;
-    
-    a {
-      @include menu-a;
-    }
-  }
-  
-  div#selected-site:hover {
-    background-color: $medium_blue;
-    
-    ~ ul#menu-site {
-      display: block;
-    }
-  }
-  
-  ul#menu-category {
-    clear: left;
-    display: none;
-    list-style: none;
-    
-    li {
-      background-color: $dark_blue;
-      border-bottom: 1px solid $medium_blue;
-      border-left: 1px solid $medium_blue;
-      border-right: 1px solid $medium_blue;
-      position: relative;
-      width: $size_menu;
-      
-      a {
-        @include menu-a;
-      }
-      
-      ul {
-        display: none;
-        left: $size_menu;
-        list-style: none;
-        position: absolute;
-        top: 0px;
-        
-        li {
-          background-color: $dark_blue;
-          border-bottom: 1px solid $medium_blue;
-          border-left: 1px solid $medium_blue;
-          border-right: 1px solid $medium_blue;
-          width: $size_menu;
-          
-          a {
-            @include menu-a;
-          }
-        }
-        
-        li:hover {
-          background-color: $medium_blue;
-        }
-      }
-    }
-    
-    li:hover {
-      background-color: $medium_blue;
-      
-      ul {
-        display: block;
-      }
-    }
-  }
-  
-  ul#menu-category:hover {
-    display: block;
-  }
-  
-  ul#menu-site {
-    clear: left;
-    display: none;
-    list-style: none;
-    
-    li {
-      background-color: $dark_blue;
-      border-bottom: 1px solid $medium_blue;
-      border-left: 1px solid $medium_blue;
-      border-right: 1px solid $medium_blue;
-      position: relative;
-      left: $size_menu;
-      width: $size_menu;
-      
-      a {
-        @include menu-a;
-      }
-    }
-    
-    li:hover {
-      background-color: $medium_blue;
-    }
-  }
-  
-  ul#menu-site:hover {
-    display: block;
-  }
-}
-
-div#setting {
-  height: $size_header;
-  position: fixed;
-  right: 0px;
-  top: 0px;
-  z-index: 2;
-  
-  img {
-    background-color: red;
-    float: right;
-    height: inherit;
-    width: $size_header;
-  }
-  
-  img:hover {
-    ~ ul#menu-setting {
-      display: block;
-    }
-  }
-  
-  ul#menu-setting {
-    clear: right;
-    display: none;
-    list-style: none;
-    
-    li {
-      background-color: red;
-      border-bottom: 1px solid $medium_blue;
-      border-left: 1px solid $medium_blue;
-      border-right: 1px solid $medium_blue;
-      width: $size_menu;
-      
-      a {
-        @include menu-a;
-      }
-    }
-    
-    li:hover {
-      background-color: pink;
-    }
-  }
-  
-  ul#menu-setting:hover {
-    display: block;
-  }
-}
+///////////////////////////////////////////////////////////////////////////////
+// MAIN
+///////////////////////////////////////////////////////////////////////////////
 
 @mixin background-main {
   background-attachment: fixed;
@@ -220,7 +32,7 @@ div#setting {
 @mixin css-feed {
   * {    
     color: black;
-    font-family: "Philosopher","Trebuchet MS",Helvetica,sans-serif;
+    font-family: $font-family-philosopher;
     font-size: 12px;
     line-height: 1.5;
   }
@@ -233,7 +45,7 @@ div#setting {
   }
   
   a:hover {
-    background: $azure;
+    background: white;
   }
   
   a:link {
@@ -251,6 +63,10 @@ div#setting {
     margin-left: 15px;
     margin-right: 30px;
     padding: 5px;
+  }
+  
+  code {
+    font-family: $font-family-courier-new;
   }
   
   img {
@@ -314,7 +130,7 @@ div#main {
       }
       
       a:hover {
-        background: $azure;
+        background: white;
       }
       
       a:link {
@@ -334,5 +150,205 @@ div#main {
     div.feed-description {
       @include css-feed;
     }
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// MENU
+///////////////////////////////////////////////////////////////////////////////
+
+$size-header: 40px;
+$size-menu: 120px;
+
+@mixin menu-a {
+  color: $azure;
+  display: block;
+  font-family: $font-family-philosopher;
+  margin: 0 auto;
+  overflow: hidden;
+  padding-bottom: 11px;
+  padding-top: 11px;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  white-space: nowrap;        
+}
+
+div#category {
+  background-color: $dark-blue;
+  height: $size-header;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 1;
+
+  div#selected-category {
+    background-color: $dark-blue;
+    border: 1px solid $medium-blue;
+    float: left;
+    width: $size-menu;
+    
+    a {
+      @include menu-a;
+    }
+  }
+  
+  div#selected-category:hover {
+    background-color: $medium-blue;
+    
+    ~ ul#menu-category {
+      display: block;
+    }
+  }
+  
+  div#selected-site {
+    background-color: $dark-blue;
+    border-bottom: 1px solid $medium-blue;
+    border-right: 1px solid $medium-blue;
+    border-top: 1px solid $medium-blue;
+    float: left;
+    width: $size-menu;
+    
+    a {
+      @include menu-a;
+    }
+  }
+  
+  div#selected-site:hover {
+    background-color: $medium-blue;
+    
+    ~ ul#menu-site {
+      display: block;
+    }
+  }
+  
+  ul#menu-category {
+    clear: left;
+    display: none;
+    list-style: none;
+    
+    li {
+      background-color: $dark-blue;
+      border-bottom: 1px solid $medium-blue;
+      border-left: 1px solid $medium-blue;
+      border-right: 1px solid $medium-blue;
+      position: relative;
+      width: $size-menu;
+      
+      a {
+        @include menu-a;
+      }
+      
+      ul {
+        display: none;
+        left: $size-menu;
+        list-style: none;
+        position: absolute;
+        top: 0px;
+        
+        li {
+          background-color: $dark-blue;
+          border-bottom: 1px solid $medium-blue;
+          border-left: 1px solid $medium-blue;
+          border-right: 1px solid $medium-blue;
+          width: $size-menu;
+          
+          a {
+            @include menu-a;
+          }
+        }
+        
+        li:hover {
+          background-color: $medium-blue;
+        }
+      }
+    }
+    
+    li:hover {
+      background-color: $medium-blue;
+      
+      ul {
+        display: block;
+      }
+    }
+  }
+  
+  ul#menu-category:hover {
+    display: block;
+  }
+  
+  ul#menu-site {
+    clear: left;
+    display: none;
+    list-style: none;
+    
+    li {
+      background-color: $dark-blue;
+      border-bottom: 1px solid $medium-blue;
+      border-left: 1px solid $medium-blue;
+      border-right: 1px solid $medium-blue;
+      position: relative;
+      left: $size-menu;
+      width: $size-menu;
+      
+      a {
+        @include menu-a;
+      }
+    }
+    
+    li:hover {
+      background-color: $medium-blue;
+    }
+  }
+  
+  ul#menu-site:hover {
+    display: block;
+  }
+}
+
+div#setting {
+  height: $size-header;
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  z-index: 2;
+  
+  img {
+    background-color: red;
+    float: right;
+    height: inherit;
+    width: $size-header;
+  }
+  
+  img:hover {
+    ~ ul#menu-setting {
+      display: block;
+    }
+  }
+  
+  ul#menu-setting {
+    clear: right;
+    display: none;
+    list-style: none;
+    
+    li {
+      background-color: red;
+      border-bottom: 1px solid $medium-blue;
+      border-left: 1px solid $medium-blue;
+      border-right: 1px solid $medium-blue;
+      width: $size-menu;
+      
+      a {
+        @include menu-a;
+      }
+    }
+    
+    li:hover {
+      background-color: pink;
+    }
+  }
+  
+  ul#menu-setting:hover {
+    display: block;
   }
 }

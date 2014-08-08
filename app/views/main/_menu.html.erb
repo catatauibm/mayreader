@@ -1,0 +1,40 @@
+<div id="category">
+	<div id="selected-category"><a class="suspension-points" href="#"><%= selected_category %></a></div>
+	<div id="selected-site"><a class="suspension-points" href="#"><%= selected_site %></a></div>
+	
+	<ul id="menu-category">
+		<% menu.each do |item| %>
+		<li><%= link_to item["category"], {action: "index", :category => item["category"]}, :class => "suspension-points" %>
+			<ul>
+				<% item["sites"].each do |site| %>
+					<% if (site != "-") %>
+						<li><%= link_to site, {action: "index", :category => item["category"], :site => site}, :class => "suspension-points" %></li>
+					<% end %>
+				<% end %>
+			</ul>
+		</li>
+		<% end %>
+	</ul>
+
+	<ul id="menu-site">
+		<% if (selected_site != "-") %>
+			<li><%= link_to "-", {action: "index", :category => selected_category}, :class => "suspension-points" %></li>
+		<% end %>
+		<% if (selected_category != "all") %>
+			<% sites = menu.map{ |a| a["sites"] if a["category"] == selected_category }.compact.first %>
+			<% sites.each do |site| %>
+				<li><%= link_to site, {action: "index", :category => selected_category, :site => site}, :class => "suspension-points" %></li>
+			<% end %>
+		<% end %>
+	</ul>
+</div>
+
+<div id="setting">
+	<%= image_tag "menu-setting.png", alt: "Configure", size: "40" %>
+	
+	<ul id="menu-setting">
+		<li><a href="#">Add Content</a></li>
+		<li><a href="#">Organize</a></li>
+		<li><a href="#">Preferences</a></li>
+	</ul>
+</div>

@@ -1,0 +1,56 @@
+<!-- http://validator.w3.org/feed/docs/rss2.html -->
+<rss>
+	<channel>
+		<title>obr</title>
+		<link>obr</link>
+		<description>obr</description>
+		
+		<language>opc</language>
+		<copyright>opc</copyright>
+		<managingEditor>opc</managingEditor>
+		<webMaster>opc</webMaster>
+		<pubDate>opc</pubDate>
+		<lastBuildDate>opc</lastBuildDate>
+		<category>opc</category>
+		<generator>opc</generator>
+		<docs>opc</docs>
+		<skipHours>opc</skipHours>
+		<skipDays>opc</skipDays>
+		
+		<image>opc
+			<title>obr</title>
+			<url>obr</url>
+			<link>obr</link>
+			
+			<width>opc</width>
+			<height>opc</height>
+			<description>opc</description>
+		</image>
+		
+		<cloud>opc</cloud>
+		
+		<ttl>opc</ttl>
+		
+		<textInput>opc (pouco usado)
+			<title>opc</title>
+			<description>opc</description>
+			<name>opc</name>
+			<link>opc</link>
+		</textInput>
+		
+		LISTA DE FEEDS
+		<item>obr
+			<title>obr</title>
+			<link>obr</link>
+			<description>obr</description>
+			
+			<author>opc</author>
+			<category>opc</category>
+			<comments>opc</comments>
+			<enclosure>opc</enclosure>
+			<guid>opc</guid>
+			<pubDate>opc</pubDate>
+			<source>opc</source>
+		</item>	
+	</channel>
+</rss>

@@ -59,7 +59,23 @@ class MainController < ApplicationController
     urls.each do |url|
       @feeds.push(feeds[url])
     end
+
+    # files = Feedjira::Feed.fetch_raw urls 
+    # puts files.methods
+
+    # File.open('test.xml', 'w') do |f2|
+      # f2.puts Feedjira::Feed.fetch_raw urls 
+    # end
     
+    puts ""
+    puts ""
+    
+    @feeds.each do |feed|
+      puts feed.title
+      print feed.methods
+      puts ""
+      puts ""
+    end
     # ver como fazer
     # f1 = Feed.new
     # f1.category = "animes"
